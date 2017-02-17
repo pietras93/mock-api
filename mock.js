@@ -131,6 +131,7 @@ function writeToFile(values, key) {
   return fs.writeFile(path.join(cmd.directory + '/' + key + '.json'), JSON.stringify(values), (err) => {
 
     if (err) {
+      msg.error('File write error, exiting...')
       msg.error(err)
       process.exit(1)
     }
@@ -173,6 +174,7 @@ function readFile(file) {
 function dbCached(err) {
 
   if (err) {
+    msg.error('File read error')
     msg.error(err)
   }
 
@@ -191,12 +193,13 @@ function readDirectory() {
   return fs.readdir(cmd.directory, (err, files) => {
      
     if (err) {
+      msg.error('Directory read error, exiting...')
       msg.error(err)
       process.exit(-1)
     } 
 
     if (!files) {
-      msg.error('Empty database directory')
+      msg.error('Empty database directory, exiting...')
       process.exit(-1)
     } 
 
