@@ -1,0 +1,29 @@
+{
+  "name": "mock-api",
+  "version": "0.1.2",
+  "description": "A simple app that serves directory with json files as a REST API",
+  "main": "mock.js",
+  "scripts": {
+    "start": "node mock.js"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.16.1",
+    "commander": "^2.9.0",
+    "express": "4.14.0",
+    "gulp-messenger": "0.25.3",
+    "lodash": "4.17.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pietras93/mock-api.git"
+  },
+  "keywords": [
+    "node",
+    "json",
+    "express",
+    "api"
+  ],
+  "author": "Piotr Frankowski <pfrankowski93@mail.com>",
+  "license": "MIT"
+}
