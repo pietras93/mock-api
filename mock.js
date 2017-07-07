@@ -37,7 +37,11 @@ app.use(parser.urlencoded({
 }))
 app.use(parser.json())
 
-//Create API routes
+/**
+ * Creates express API paths for models
+ * @param {object} values - JSON with model contents
+ * @param {string} key - model/path name
+ */
 function createPaths(values, key) {
 
   //Get all
@@ -125,7 +129,11 @@ function createPaths(values, key) {
   })
 }
 
-//Save data to file
+/**
+ * Saves in-memory data to corresponding files
+ * @param {object} values - JSON with model contents
+ * @param {string} key - model and file name
+ */
 function writeToFile(values, key) {
 
   return fs.writeFile(path.join(cmd.directory + '/' + key + '.json'), JSON.stringify(values), (err) => {
@@ -138,7 +146,11 @@ function writeToFile(values, key) {
   })
 }
 
-//Read file
+/**
+ * readFile - fills fileReadFuctions array with function
+ * reading file.json from db directory
+ * @param {string} file - filename w/o extension
+ */
 function readFile(file) {
 
   var fname = file.split('.') 
@@ -170,7 +182,11 @@ function readFile(file) {
   }
 }
 
-//All files have been read
+/**
+ * To be called after data is read from files.
+ * Calls createPaths for each object and creates file update interval
+ * @param {*} err - if exists will be printed in console
+ */
 function dbCached(err) {
 
   if (err) {
@@ -187,7 +203,10 @@ function dbCached(err) {
   })
 }
 
-//Read directory
+/**
+ * Reads files in db directory and executes fileReadFunctions
+ * Exits on dir read error and empty db directory
+ */
 function readDirectory() {
 
   return fs.readdir(cmd.directory, (err, files) => {
@@ -209,7 +228,9 @@ function readDirectory() {
   })
 }
 
+// List available paths
 app.get('/', (req, res) => {
+  
   return res.json({
     availableRoutes: objects
   })
