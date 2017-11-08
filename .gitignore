@@ -40,4 +40,4 @@ jspm_packages
 .DS_Store
 
 # JSON files dir
-db
+db/
