@@ -37,6 +37,16 @@ Install dependencies and start service
 $ npm install
 $ ./mock.js
 ```
+## In order to import as lib
+Import class and create new object with params
+```
+// ES7
+import MockAPI from './mock.js'
+// ES6
+const MockAPI = require('./mock.js')
+
+const mock = new MockAPI(params)
+```
 
 ### Used tech:
 
